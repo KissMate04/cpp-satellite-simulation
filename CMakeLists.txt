@@ -9,6 +9,8 @@ include_directories(.)
 
 add_executable(cpp_setallite_simulation
         main.cpp
-        main.h)
+        main.h
+        SpaceObject.cpp
+        SpaceObject.h)
 
 target_link_libraries(cpp_setallite_simulation PRIVATE raylib)
