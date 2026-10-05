@@ -1,13 +1,21 @@
 #include "main.h"
 #include <raylib.h>
 #include <iostream>
+#include <list>
+#include <Settings.h>
+#include <Simulation.h>
 
 int main() {
-    InitWindow(1000,1000, "Satellite Simulation");
+    InitWindow(settings.WIDTH,settings.HEIGHT, "Satellite Simulation");
+    SetTargetFPS(60);
+    Simulation simulation = Simulation();
     while (WindowShouldClose() == false) {
         BeginDrawing();
-        ClearBackground(RAYWHITE);
-        DrawText("Satellite Simulation", 10, 10, 20, BLACK);
+        ClearBackground(BLACK);
+
+        simulation.update();
+        simulation.paint();
+
         EndDrawing();
     }
     CloseWindow();

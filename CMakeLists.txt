@@ -11,6 +11,10 @@ add_executable(cpp_setallite_simulation
         main.cpp
         main.h
         SpaceObject.cpp
-        SpaceObject.h)
+        SpaceObject.h
+        Simulation.cpp
+        Simulation.h
+        Settings.cpp
+        Settings.h)
 
 target_link_libraries(cpp_setallite_simulation PRIVATE raylib)
