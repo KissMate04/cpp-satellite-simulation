@@ -13,6 +13,7 @@ class Simulation {
 public:
     Simulation();
     void paint();
+    void paintSO(SpaceObject so);
     void update();
     void paintUI();
     void addTrailPoints();
