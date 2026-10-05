@@ -3,6 +3,7 @@
 #include <raylib.h> //Needed for color. Fix later
 #include <cmath>
 #include <Settings.h>
+#include <vector>
 #pragma once
 
 
@@ -12,10 +13,10 @@ class SpaceObject {
     double mass;
     double radius;
     Color color{};
-    //list<Point2D.Double> trailPoints;
+    std::vector<Vector2> trailPoints;
 public:
     SpaceObject(double x, double y, double vx, double vy, double mass, double radius, Color color);
-    void update(double px, double py, double pmass);
+    void update(double px, double py, double pmass, float dt);
     void addTrailPoint();
     double getX() const {
         return x;
@@ -42,6 +43,9 @@ public:
     }
     Color getColor() const {
         return color;
+    }
+    std::vector<Vector2> getTrailPoints() const {
+        return trailPoints;
     }
 };
 

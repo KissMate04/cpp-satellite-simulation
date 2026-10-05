@@ -14,7 +14,8 @@ public:
     Simulation();
     void paint();
     void paintSO(SpaceObject so);
-    void update();
+    static void paintTrail(const std::vector<Vector2>& trailPoints);
+    void update(float dt);
     void paintUI();
     void addTrailPoints();
 };
