@@ -6,17 +6,21 @@
 #include <Simulation.h>
 
 int main() {
-    InitWindow(settings.WIDTH,settings.HEIGHT, "Satellite Simulation");
+    SetConfigFlags(FLAG_WINDOW_RESIZABLE | FLAG_WINDOW_UNDECORATED);
+    InitWindow(1280, 720, "Satellite Simulation");
+    MaximizeWindow();
     SetTargetFPS(60);
+
     Simulation simulation = Simulation();
     double lastTrailTime = GetTime();
     while (WindowShouldClose() == false) {
-        const float stepDt = GetFrameTime() / 4.0f;
+        simulation.updateCamera();
+        const float stepDt = GetFrameTime() / settings.TIME_STEP;
         for (int i = 0; i < 4; i++) {
             simulation.update(stepDt);
         }
 
-        if (GetTime() - lastTrailTime > 0.4) {
+        if (GetTime() - lastTrailTime > settings.TIME_STEP) {
             simulation.addTrailPoints();
             lastTrailTime = GetTime();
         }

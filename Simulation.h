@@ -11,10 +11,12 @@ class Simulation {
     SpaceObject planet;
     std::list<SpaceObject> satellites;
 public:
+    Camera2D camera;
     Simulation();
+    void updateCamera();
     void paint();
     void paintSO(SpaceObject so);
-    static void paintTrail(const std::vector<Vector2>& trailPoints);
+    void paintTrail(const std::vector<Vector2>& trailPoints);
     void update(float dt);
     void paintUI();
     void addTrailPoints();
